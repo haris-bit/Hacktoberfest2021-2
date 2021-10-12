@@ -1,0 +1,21 @@
+import os
+from googletrans import Translator
+
+# function for renaming multiple files
+def main():
+    # Creating instance of the class
+    translator = Translator()
+    i = 0
+    # Local Directory where Python will find the folder
+    path = "C:/Users/pc/Desktop/some_chinese_stuff/New Folder0/"
+    # getting all the files in the path and storing them as a list
+    for filename in os.listdir(path):
+        #my_dest = "img" + str(i) + ".jpg"
+        out = (translator.translate(filename, des="en")).text
+        my_source = path + filename
+        out = path + out
+        os.rename(my_source, out)
+        i += 1
+    
+if __name__ == '__main__':
+    main()
